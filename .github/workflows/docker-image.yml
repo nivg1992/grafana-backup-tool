@@ -2,8 +2,8 @@ name: Docker Image CI with Tag
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - 'test'
 
 jobs:
   push_to_registry:
@@ -23,13 +23,13 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ysde/docker-grafana-backup-tool
+          images: nivg1992/docker-grafana-backup-tool
 
       - name: Extract metadata (tags, labels) for Docker (Slim version)
         id: meta_slim
         uses: docker/metadata-action@v4
         with:
-          images: ysde/docker-grafana-backup-tool
+          images: nivg1992/docker-grafana-backup-tool
           flavor: |
             latest=auto
             suffix=-slim,onlatest=true
