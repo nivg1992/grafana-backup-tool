@@ -6,7 +6,7 @@ ENV RESTORE false
 ENV ARCHIVE_FILE ""
 
 RUN echo "@edge http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
-    && apk --no-cache add python3-dev libffi-dev gcc libc-dev py3-pip py3-cffi py3-cryptography ca-certificates bash python3-pylint-common
+    && apk --no-cache add python3-dev libffi-dev gcc libc-dev py3-pip py3-cffi py3-cryptography ca-certificates bash
 
 RUN rm /usr/lib/python3.11/EXTERNALLY-MANAGED
 
