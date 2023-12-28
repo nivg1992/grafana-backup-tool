@@ -29,6 +29,9 @@ ADD . /opt/grafana-backup-tool
 RUN chmod -R a+r /opt/grafana-backup-tool \
  && find /opt/grafana-backup-tool -type d -print0 | xargs -0 chmod a+rx
 
+# https://stackoverflow.com/questions/75608323/how-do-i-solve-error-externally-managed-environment-every-time-i-use-pip-3
+RUN rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+
 RUN echo "@edge http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
     && apk add --no-cache --virtual build-deps ${DEV_PACKAGES} \
     && apk add --no-cache ${PACKAGES} \
